@@ -3,6 +3,6 @@ class Client < ApplicationRecord
     has_many :gyms, through: :memberships
 
     def total_membership_fees
-        self.memberships do
+        self.memberships.sum(:charge)
     end
 end
